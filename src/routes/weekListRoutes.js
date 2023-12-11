@@ -4,6 +4,10 @@ const authMiddleware = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
+router.get('/test', (req, res) => {
+    res.send('Test route is working!');
+});  
+
 // Add Week List API
 router.post('/', authMiddleware.isLoggedIn, weekListController.addWeekList);
 

@@ -16,7 +16,7 @@ const authRoutes = require('./routes/authRoutes');
 const weekListRoutes = require('./routes/weekListRoutes');
 
 // Use Routes
-app.use('/auth', authRoutes);
+app.use('/authr', authRoutes);
 app.use('/weeklists', weekListRoutes);
 
 // Health API
