@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const AuthenticateToken = require('./middleware/authMiddleware');
 
 dotenv.config();
 
@@ -26,6 +27,11 @@ app.get('/health', (req, res) => {
     currentTime: new Date(),
     state: 'active'
   });
+});
+
+
+app.get("/protected", AuthenticateToken.authenticateToken, (req, res) => {
+  res.json({ message: "This is a protected route" });
 });
 
 // Route Not Found Middleware
